@@ -26,21 +26,13 @@ jobs:
     # Add steps to the job
     # See: https://circleci.com/docs/2.0/configuration-reference/#steps
     steps:
-      - checkout
-
-      # Download and cache dependencies
-      - restore_cache:
-          keys:
-            - v1-dependencies-{{ checksum "build.gradle" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: gradle dependencies
-
-      - save_cache:
-          paths:
-            - ~/.gradle
-          key: v1-dependencies-{{ checksum "build.gradle" }}
-
-      # run tests!
-      - run: gradle test
+  - restore_cache:
+      keys:
+        # when lock file changes, use increasingly general patterns to restore cache
+        - maven-repo-v1-{{ .Branch }}-{{ checksum "pom.xml" }}
+        - maven-repo-v1-{{ .Branch }}-
+        - maven-repo-v1-
+  - save_cache:
+      paths:
+        - ~/.m2
+      key: maven-repo-v1-{{ .Branch }}-{{ checksum "pom.xml" }}

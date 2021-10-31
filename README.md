@@ -1,2 +1,2 @@
 # shoppingApp
-Area for learing Cucumber features 
+Area for learning Cucumber features 

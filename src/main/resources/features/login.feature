@@ -1,3 +1,4 @@
+@Smoke
 Feature: Login into account
 
   Scenario: Valid username and password

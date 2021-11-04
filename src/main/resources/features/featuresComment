@@ -1,0 +1,12 @@
+In features required to use variables like "cannot" when will be only 1 value
+
+And in case if it will require to replace into several values then it will be
+instead of "cannot" will be like that :
+"<Value1>"
+
+Examples:
+|Value1|
+|cannot|
+
+
+Change "Scenario" into "Scenario Outline"

@@ -1,15 +1,24 @@
 Feature:  Check my basket application
 
-  Scenario: No item Selected in basket
+  Scenario Outline: No item Selected in basket
     Given User start the application
     Then In basket should be see selection of products
-    When User browse basket "without" buying product
-    Then User's basket should "" be empty
-    And User "cannot" buy an item
+    When User browse basket "<No>" buying product
+    Then User's basket should "<Empty>" be empty
+    And User "<notAble>" buy an item
 
-    Scenario: Item selected in basket
-      Given User start the application
-      Then In basket should be see selection of products
-      When User browse basket "with" buying product
-      Then User's basket should "not" be empty
-      And User "can" buy an item
+    Examples:
+      | No      | Empty | notAble |
+      | without |       | cannot  |
+
+
+  Scenario Outline: Item selected in basket
+    Given User start the application
+    Then In basket should be see selection of products
+    When User browse basket "<Yes>" buying product
+    Then User's basket should "<notEmpty>" be empty
+    And User "<Able>" buy an item
+
+    Examples:
+      | Yes  | notEmpty | Able |
+      | with | not      | can  |

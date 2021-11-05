@@ -22,3 +22,21 @@ Feature:  Check my basket application
     Examples:
       | Yes  | notEmpty | Able |
       | with | not      | can  |
+
+
+  Scenario Outline: Buy different items
+    Given User start the application
+    Then In shop should be see selection of products
+    When User browse shop with items
+    Then Shop has several items
+    When User add item "<Item1>"
+    And User add item "<Item2>"
+    Then In basket should be see selection of products
+    When User browse basket "<Yes>" buying product
+    Then User's basket should "<notEmpty>" be empty
+    And User "<Able>" buy an item
+    Examples:
+      | Item1   | Item2  | Yes  | notEmpty | Able |
+      | Bananas | Apple  | with | not      | can  |
+      | Onions  | Tomato | with | not      | can  |
+

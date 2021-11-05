@@ -37,4 +37,26 @@ public class ShoppingSteps {
     {
         System.out.println("User "+action+" buy an item");
     }
+
+    @Then("In shop should be see selection of products")
+    public void inShopShouldBeSeeSelectionOfProducts()
+    {
+        System.out.println("In shop should be see selection of products");
+    }
+
+
+    @When("User browse shop with items")
+    public void userBrowseShopWithItems() {
+        System.out.println("User browse shop with items");
+    }
+
+    @Then("Shop has several items")
+    public void shopHasSeveralItems() {
+        System.out.println("Shop has several items");
+    }
+
+    @When("User add item {string}")
+    public void userAddItem(String itemName) {
+        System.out.println("User add item "+itemName);
+    }
 }

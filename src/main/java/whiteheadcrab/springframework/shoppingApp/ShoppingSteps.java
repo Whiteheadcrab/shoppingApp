@@ -1,10 +1,17 @@
 package whiteheadcrab.springframework.shoppingApp;
 
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+
+import java.util.List;
+import java.util.Map;
 
 @SpringBootApplication
 public class ShoppingSteps {
@@ -39,8 +46,12 @@ public class ShoppingSteps {
     }
 
     @Then("In shop should be see selection of products")
-    public void inShopShouldBeSeeSelectionOfProducts()
+    public void inShopShouldBeSeeSelectionOfProducts(DataTable dataTable)
     {
+        List<Map<String,String>> list = dataTable.asMaps(String.class, String.class);
+
+        System.out.println("Shop is : "+list.get(0).get("shopName"));
+        System.out.println("Shop is : "+list.get(1).get("shopName"));
         System.out.println("In shop should be see selection of products");
     }
 

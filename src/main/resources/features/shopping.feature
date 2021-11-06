@@ -27,6 +27,9 @@ Feature:  Check my basket application
   Scenario Outline: Buy different items
     Given User start the application
     Then In shop should be see selection of products
+      | shopName |  |
+      | AllFree  |  |
+      | Paytv    |  |
     When User browse shop with items
     Then Shop has several items
     When User add item "<Item1>"

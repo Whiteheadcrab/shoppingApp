@@ -1,7 +1,10 @@
 @Smoke
 Feature: Login into account
 
-  Scenario: Valid username and password
+  Background:
+    Given User launch Chrome browser
+
+  Scenario: Valid username and password with Chrome browser
     Given User launch application
     Then User enter correct username and password
     And Clicked on Login Button

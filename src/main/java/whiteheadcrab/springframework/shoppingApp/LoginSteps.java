@@ -31,4 +31,10 @@ public class LoginSteps {
     {
         System.out.println("User login into application");
     }
+
+    @Given("User launch Chrome browser")
+    public void userLaunchChromeBrowser()
+    {
+        System.out.println("User launch Chrome browser");
+    }
 }

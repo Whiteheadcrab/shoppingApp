@@ -4,6 +4,7 @@ Feature: Login into account
   Background:
     Given User launch Chrome browser
 
+  @Login
   Scenario: Valid username and password with Chrome browser
     Given User launch application
     Then User enter correct username and password
